@@ -9,21 +9,34 @@ class Solution {
             
 //         }
 //         return false;
-        int cur=0;
-        Arrays.sort(nums);
-        for (int i=0;i<nums.length;i++){
-            if(i==0) 
-            {
-                cur=nums[0];
-                continue;
-            }
-            if(cur==nums[i]) 
+//         int cur=0;
+//         Arrays.sort(nums);
+//         for (int i=0;i<nums.length;i++){
+//             if(i==0) 
+//             {
+//                 cur=nums[0];
+//                 continue;
+//             }
+//             if(cur==nums[i]) 
+//                 return true;
+//             else {
+//                 cur=nums[i];
+//             }
+//         }
+        
+//         return false;
+        
+        //
+         HashSet<Integer> hs=new HashSet<>();
+        
+        for(int ele:nums){
+            if(hs.contains(ele))
                 return true;
-            else {
-                cur=nums[i];
+            else{
+                hs.add(ele);
+                
             }
         }
-        
         return false;
     }
     
