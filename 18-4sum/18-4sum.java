@@ -12,7 +12,7 @@ class Solution {
         for(int i=0;i<n-3;i++)
         {
             for(int j=i+1;j<n-2;j++){
-                long target_2=target-nums[i]-nums[j];
+                int target_2=target-nums[i]-nums[j];
                 
                 int front=j+1,back=n-1;
                 
@@ -41,6 +41,7 @@ class Solution {
                 //skip duplicates of number 2 ,means no. nums[j]
                 while(j+1<n && nums[j+1]==nums[j]) j++;
             }
+                //skip duplicates of number 1 ,means no. nums[i]
                 while(i+1<n && nums[i+1]==nums[i]) i++;
         }
         
