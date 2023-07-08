@@ -57,46 +57,49 @@ class Merge_Sort
 
 class Solution
 {
-    void merge(int arr[], int l, int m, int r)
+    void merge(int arr[], int l, int m, int h)
     {
-        int n1=m-l+1;   //size of arr1
-        int n2=r-m;     //size of arr2
+         // Your code here
         
-        int L[] = new int[n1];
-        int R[] = new int[n2];
- 
-        /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
+        int left=l;
+        int right=m+1;
         
-        int i=0,j=0,k=l;
+        ArrayList<Integer> temp=new ArrayList<>();
+        // int k=l;
         
-        while(i<n1 && j<n2){
-            if(L[i]<R[j]){
-                arr[k]=L[i++];
+        while(left<=m && right<=h){
+            if(arr[left]<=arr[right]){
+                temp.add(arr[left++]);
+            }else{
+                temp.add(arr[right++]);
             }
-            else{
-                arr[k]=R[j++];
-            }
-            k++;
-        }
-        while(i<n1){
-            arr[k++]=L[i++];
-        }
-        while(j<n2){
-            arr[k++]=R[j++];
-        }
+        } 
         
+        while(left<=m){
+            temp.add(arr[left++]);
+        }
+         
+        while(right<=h){
+            temp.add(arr[right++]);
+        }
+         
+         
+        for(int i=l;i<=h;i++){
+            arr[i]=temp.get(i-l);
+        }
+         
     }
-    void mergeSort(int arr[], int l, int r)
+    void mergeSort(int arr[], int l, int h)
     {
-        if(l<r){
-            int mid=l+(r-l)/2;
-            mergeSort(arr,l,mid);
-            mergeSort(arr,mid+1,r);
-            merge(arr,l,mid,r);
-        }
+        //code here
+        
+        if(l>=h)return;
+        
+        int m= l + (h-l)/2;
+        mergeSort(arr,l,m);
+        mergeSort(arr,m+1,h);
+        merge(arr,l,m,h);
+        
+        
     }
 }
