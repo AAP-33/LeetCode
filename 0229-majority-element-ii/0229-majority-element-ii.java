@@ -32,8 +32,7 @@ class Solution {
             anslist.add(el1);
         if(cnt2> (n/3) )
             anslist.add(el2);
-
-        Collections.sort(anslist);
+        // Collections.sort(anslist);
         return anslist;
     }
 }
